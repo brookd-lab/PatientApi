@@ -32,15 +32,6 @@ namespace ExternalAPIs
 
         private readonly HttpClient _client;
 
-        #region Authentication
-
-        /// <summary>
-        /// Set jwt token
-        /// </summary>
-        /// <returns></returns>
-
-        #endregion
-
         #region Json Helpers
 
         /// <summary>
