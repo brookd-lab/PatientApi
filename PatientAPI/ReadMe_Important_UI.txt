@@ -1,11 +1,19 @@
 ﻿UI Flow
 
 Point to Controller with CORS
-PatientID = IsExistingPatient(SSN)
-if 0, non-existing, so RegisterNewPatient(PatientData) 
-  PatientData comes from UI, New Patient Form
-else 
-	PatientData = GetPatientData(PatientID)
-	PerformBackgroundProcesses(PatientData)
+
+//PatientId = 0 if non-existent or returns PatientID
+PatientId = isExistingPatient(ssn)
+Patient = GetPatientData(PatientId)
+
+NewPatientId = RegisterNewPatient(Patient)
+	Calls: IsExistingPatient(SSN)
+	Calls: GetPatientData(PatientId)
+	if either are true, returns 0
+
+if (PatientID == 0) {
+	AddPatientToDB(Patient)
+	PerformBackgroundProcesses(Patient)
+}
 
 ** Check the log for errors
